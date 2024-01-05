@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "gM2zFzNUMi5tQ0HiGgVR3Rlo8tIPJGmzCdLi+CHejcvhHGHCNh5EYg9w/eR1E4hYAXDhbG2E/FowVNu93GGsmQ==",
+  "dgSpecHash": "G60rBg4VopzEXLV3lPGpFjX+aSO4i8Iz5ns5PYe3DlK4fqG6/B9oMOHN2LFsZH6xauccG4CjzoIQVx9IXVLeZg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gikso\\OneDrive\\Desktop\\BkProject\\BooksProject\\BooksProject.csproj",
+  "projectFilePath": "C:\\Users\\gikso\\OneDrive\\Desktop\\booksprojectbeck\\BooksProject\\BooksProject.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\gikso\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\gikso\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\gikso\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\gikso\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\gikso\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\gikso\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\gikso\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\gikso\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.25\\microsoft.entityframeworkcore.6.0.25.nupkg.sha512",

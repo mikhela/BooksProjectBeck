@@ -8,11 +8,11 @@ namespace BooksProject.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        [StringLength(50)]
-        public string EmailAddress { get; set; } = null;
+        [StringLength(150)]
+        public string EmailAddress { get; set; }
         [Required]
-        [StringLength(50)]
-        public string Password { get; set; } = null;
+        [StringLength(150)]
+        public string Password { get; set; }
         
     }
 }

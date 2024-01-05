@@ -1,6 +1,7 @@
 ﻿using BooksProject.Data;
 using BooksProject.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BooksProject.Controllers
 {
@@ -9,34 +10,65 @@ namespace BooksProject.Controllers
     public class UsersController : ControllerBase
     {
         private readonly ApplicationDataContext _context;
-
         public UsersController(ApplicationDataContext context)
         {
             _context = context;
         }
 
+        [HttpPost("registration")]
 
-        [HttpPost]
-        [Route("register")]
-        public IActionResult Register(AddUserDTO model)
-        {
-            model.Password = HashPassword(model.Password);
+        public async Task<IActionResult> Register(AddUserDTO model)
+        { 
 
-            Users user = new Users
+            if(!ModelState.IsValid)
+            { 
+                return BadRequest(ModelState);
+            }
+
+            if (await _context.users.AnyAsync(x => x.EmailAddress == model.EmailAddress))
+            {
+                return Conflict("Email already exists");
+            }
+
+            var newUser = new Users
             {
                 EmailAddress = model.EmailAddress,
                 Password = model.Password
             };
 
-            _context.users.Add(user);
-            _context.SaveChanges();
-            return Ok("registration succesful");
+            _context.users.Add(newUser);
+            await _context.SaveChangesAsync();
+
+
+            return Ok("registration successful");
         }
 
-        private string HashPassword(string password)
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginDTO model)
         {
-            // Implement secure hashing algorithm
-            return password; // Replace this with actual hashing logic
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = await _context.users.FirstOrDefaultAsync(x => x.EmailAddress == model.EmailAddress);
+
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            if (user.Password != model.Password)
+            {
+                return Unauthorized("Invalid password");
+            }
+
+            // You might generate a token here if using authentication mechanisms like JWT
+
+            return Ok("Login successful");
         }
+
+
     }
 }

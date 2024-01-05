@@ -1,3 +1,4 @@
+using AutoMapper;
 using BooksProject.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,11 +8,11 @@ var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<ApplicationDataContext>
-    (options => options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnectionString")));
+builder.Services.AddDbContext<ApplicationDataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnectionString")));
+builder.Services.AddAutoMapper(typeof(Mapper));
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
